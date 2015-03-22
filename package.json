@@ -1,0 +1,28 @@
+{
+  "name": "colorpasta",
+  "version": "0.0.1",
+  "main": "./index",
+  "bin": {
+    "colorpasta": "bin/colorpasta.js"
+  },
+  "engines": {
+    "node": "0.10.31"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dnomadb/colorpasta.git"
+  },
+  "dependencies": {
+    "copy-paste": "^1.0.2",
+    "minimist": "^1.1.0"
+  },
+  "scripts": {
+    "test": "tape test/*.test.js",
+    "coverage": "istanbul cover tape test/*.test.js && coveralls < ./coverage/lcov.info"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.7",
+    "tape": "^3.5.0"
+  }
+}

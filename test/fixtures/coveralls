@@ -1,0 +1,5 @@
+1. sign into coveralls.io w/ your github account
+2. repos ==> add repo
+3. copy your repo token and put it into your .coveralls.yaml (don't git add this file)
+4. make sure istanbul and coveralls are installed, and add them to your devDependencies. if you are (still) using mocha (as in this case), mocha-lcov-reporter
+4. npm run coverage
