@@ -23,6 +23,7 @@ function verifyColor(color) {
 
 function parseColors(base, colors) {
     colors = colors.split(',');
+    if (colors.length < 2) throw new Error('U pasted: "' + colors + '" - did u mean to to this?');
     return colors.map(function(a, i) {
         verifyColor(a);
         return '@' + base + (i + 1) + ': ' + a + ';' ;

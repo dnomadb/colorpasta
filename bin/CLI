@@ -1,5 +1,6 @@
-var colorpasta = require('../index.js');
+#!/usr/bin/env node
 
+var colorpasta = require('../index');
 var clipboard = require('copy-paste');
 var argv = require('minimist')(process.argv.slice(2));
 var template;
@@ -12,14 +13,12 @@ if (argv.template) {
 }
 
 if (argv.classprefix) {
-    prefix = '' + argv.classprefix
+    prefix = '' + argv.classprefix;
 } else {
-    prefix = 'class'
+    prefix = 'class';
 }
 
 var copy = argv.copy || false;
-
-console.log(copy)
 
 clipboard.paste(function(err, data) {
     if (err) throw err;
@@ -37,7 +36,7 @@ var makeOutput = {
         }
         clipboard.copy(output, function(err) {
             if (err) throw err;
-            console.log('Carto copied to clipboard')
+            console.log('Carto copied to clipboard');
         });
     },
     false: function(carto) {
@@ -46,4 +45,4 @@ var makeOutput = {
             console.log(carto.classes.join('\n'));
         }
     }
-}
+};

@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "main": "./index",
   "bin": {
-    "colorpasta": "bin/colorpasta.js"
+    "colorpasta": "./bin/CLI"
   },
   "engines": {
     "node": "0.10.31"
