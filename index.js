@@ -1,6 +1,6 @@
 function verifyTemplate(template, callback) {
     var correct = {
-        layer: 'string',
+        attribute: 'string',
         min: 'number',
         max: 'number',
         params: 'object'
@@ -30,15 +30,15 @@ function parseColors(base, colors) {
     });
 }
 
-function getBreaks(layer, min, max, params, classes, rounding) {
+function getBreaks(attribute, min, max, params, classes, rounding) {
     var interval = (max - min) / classes.length;
     var outputs = classes.map(function(c, i) {
         var cBase;
 
         if (i === 0) {
-            cBase = '[' + layer + ' <= ' + (interval + min).toFixed(rounding) + '] { ';
+            cBase = '[' + attribute + ' <= ' + (interval + min).toFixed(rounding) + '] { ';
         } else {
-            cBase = '[' + layer + ' > ' + (i * interval + min).toFixed(rounding) + '] { ';
+            cBase = '[' + attribute + ' > ' + (i * interval + min).toFixed(rounding) + '] { ';
         }
 
         styles = params.map(function(p) {
@@ -60,7 +60,7 @@ function makeColorRamp(prefix, data, template, callback) {
     if (template) {
         verifyTemplate(template, function(err, template) {
             if (err) callback(err);
-            output.classes = getBreaks(template.layer, template.min, template.max, template.params, colors, 2);
+            output.classes = getBreaks(template.attribute, template.min, template.max, template.params, colors, 2);
             return callback(null, output);
         });
     } else {

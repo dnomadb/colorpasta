@@ -6,6 +6,7 @@ var argv = require('minimist')(process.argv.slice(2));
 var template;
 var prefix;
 
+
 if (argv.template) {
     template = JSON.parse(argv.template);
 } else {
@@ -32,7 +33,7 @@ var makeOutput = {
     true: function(carto) {
         var output = carto.colors.join('\n');
         if (carto.classes) {
-            output += carto.classes.join('\n');
+            output += '\n#<LAYERNAME> {\n  ' + carto.classes.join('\n  ') + '\n}';
         }
         clipboard.copy(output, function(err) {
             if (err) throw err;
@@ -42,7 +43,7 @@ var makeOutput = {
     false: function(carto) {
         console.log(carto.colors.join('\n'));
         if (carto.classes) {
-            console.log(carto.classes.join('\n'));
+            console.log('#<LAYERNAME> {\n  ' + carto.classes.join('\n  ') + '\n}');
         }
     }
 };
